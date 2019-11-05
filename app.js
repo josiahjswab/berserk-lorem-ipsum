@@ -49,7 +49,7 @@ const select = document.createElement("SELECT");
     selectArray.forEach(createSelectorList);
 
 function createSelectorList(item){
-    var options = document.createElement("OPTION");
+    const options = document.createElement("OPTION");
     options.setAttribute('value', item);
     document.getElementById('length-select').appendChild(options).innerHTML = item/10 + ' x Content';
 }
@@ -84,18 +84,12 @@ function generateLorem() {
 }
 
 function copyToClipboard(id) {
-    if (document.selection) { 
-        var range = document.body.createTextRange();
-        range.moveToElementText(document.getElementById(id));
-        range.select().createTextRange();
-        document.execCommand("copy"); 
-    
-    } else if (window.getSelection) {
-        var range = document.createRange();
-         range.selectNode(document.getElementById(id));
-         window.getSelection().addRange(range);
-         document.execCommand("copy");
-    }}
+    var range = document.createRange();
+        range.selectNode(document.getElementById(id));
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+
+}
 
 generateLorem();
 

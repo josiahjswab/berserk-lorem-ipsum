@@ -12,9 +12,12 @@ body {
     font-family: 'Inconsolata', monospace;
     padding: 50px;
 }
-#header {
-
-}
+@media only screen and (max-width: 640px) {
+    #main-img img {
+      width: 320px;
+      
+    }
+  }
 #bar {
     display: flex;
     align-content: center;
