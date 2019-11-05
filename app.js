@@ -88,7 +88,7 @@ function copyToClipboard(id) {
     range.selectNode(document.getElementById(id));
     window.getSelection().addRange(range);
     document.execCommand("copy");
-    window.getSelection().removeRange(range); // End lifecycle unmount range. Not doing this causes bugs.
+    // window.getSelection().removeRange(range); // End lifecycle unmount range. Not doing this causes bugs.
     
 }
 
