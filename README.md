@@ -1,7 +1,7 @@
 
 # berserk-lorem-ipsum
 
-Welcome to Josiah Swabs Berserk inspired Lorem Lipsum.
+Welcome to a Berserk inspired Lorem Lipsum.
 
 Install the dependencies with:
 ```
