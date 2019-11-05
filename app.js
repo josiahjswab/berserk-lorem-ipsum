@@ -25,28 +25,24 @@ const quotesArray = [' "Hate is a place where a man who can\'t stand sadness, go
     ' "The reward for ambition too great... is self destruction."',
 ];
 
-const selectArray = ['10', '20', '30', '40', '50']
-
-var root = document.getElementById('root');
-
-
+const selectArray = ['10', '20', '30', '40', '50'];
 
 const header = document.createElement("H1");
 const headerText = document.createTextNode(`Berserk Lorem Ipsum`);
 const headerImg = document.createElement("IMG");
-    headerImg.setAttribute('src', 'curse.png');
-    document.getElementById('header').appendChild(header).appendChild(headerText);
-    document.getElementById('header').appendChild(headerImg);
+headerImg.setAttribute('src', 'curse.png');
+document.getElementById('header').appendChild(header).appendChild(headerText);
+document.getElementById('header').appendChild(headerImg);
 
 const image = document.createElement("IMG");
-    image.setAttribute('src', 'berserk.png')
-    document.getElementById('main-img').appendChild(image);
+image.setAttribute('src', 'berserk.png');
+document.getElementById('main-img').appendChild(image);
 
 const select = document.createElement("SELECT");
-    select.id = 'length-select';
-    document.getElementById('bar').appendChild(select);
+select.id = 'length-select';
+document.getElementById('bar').appendChild(select);
 
-    selectArray.forEach(createSelectorList);
+selectArray.forEach(createSelectorList);
 
 function createSelectorList(item){
     const options = document.createElement("OPTION");
@@ -57,17 +53,18 @@ function createSelectorList(item){
 const getSelectorValue = document.getElementById('length-select');
 
 const button = document.createElement("BUTTON");
-    button.setAttribute('id', 'generator-button');
-    button.setAttribute('onclick', 'generateLorem()');
-    button.innerHTML = 'Generate';
-    document.getElementById('bar').appendChild(button);
+button.setAttribute('id', 'generator-button');
+button.setAttribute('onclick', 'generateLorem()');
+button.innerHTML = 'Generate';
+document.getElementById('bar').appendChild(button);
 
-    const button2 = document.createElement("BUTTON");
-    button2.setAttribute('id', 'copy-button');
-    button2.setAttribute('data-tooltip', 'Copied');
-    button2.setAttribute('onclick', 'copyToClipboard("root")');
-    button2.innerHTML = 'Copy';
-    document.getElementById('bar').appendChild(button2);
+const button2 = document.createElement("BUTTON");
+button2.setAttribute('id', 'copy-button');
+button2.setAttribute('onclick', 'copyToClipboard("root")');
+button2.innerHTML = 'Copy';
+document.getElementById('bar').appendChild(button2);
+
+var root = document.getElementById('root'); // App latency improved when this var was moved here.
 
 function generateLorem() {
     var paragraph = '';   
@@ -80,15 +77,19 @@ function generateLorem() {
         
         
     }
-        return root.innerHTML = paragraph;
+    return root.innerHTML = paragraph;
 }
-
+/**
+ * 
+ * @param {string} id 
+ */
 function copyToClipboard(id) {
     var range = document.createRange();
-        range.selectNode(document.getElementById(id));
-        window.getSelection().addRange(range);
-        document.execCommand("copy");
-
+    range.selectNode(document.getElementById(id));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    window.getSelection().removeRange(range); // End lifecycle unmount range. Not doing this causes bugs.
+    
 }
 
 generateLorem();
