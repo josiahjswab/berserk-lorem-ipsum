@@ -1,10 +1,10 @@
 
-const characterArray = [' Guts', ' Griffith', ' Goto', ' Casca', ' Skull Knight', ' Rickert', ' Puck', ' Rickert', ' Zodd', ' Serpico', ' Pippin', ' Isidro', ' Farnese', ' Ivalera' ];
+const characterArray = [' Guts', ' Griffith', ' Goto', ' Casca', ' Skull Knight', ' Skull Knight', ' Rickert', ' Zodd', ' Serpico', ' Pippin', ' Isidro', ' Farnese', ' Ivalera' ];
 
 const senarioArray = [' swung the sword in a great arc', 
     ' howled like a wild animal', 
     ' yelled "In the end the winner is still the last man standing!"',
-    ' ran towards the foul monster',
+    ' ran towards the beast',
     ' stoop firmly with both feet',
     ' band of the hawk',
     ' was saved',
@@ -13,7 +13,9 @@ const senarioArray = [' swung the sword in a great arc',
     ' looked thoughtfully into his tankard',
     ' parried the incoming blow',
     ' stumbled on the soft earth',
-    ' cried out'
+    ' cried out',
+    ' God gave them this destiny. This encounter.',
+    ' What you want....may not be what she wants.'
 
 ];
 
@@ -23,6 +25,11 @@ const quotesArray = [' "Hate is a place where a man who can\'t stand sadness, go
     ' "Even if we painstakingly piece together something lost, it doesn\'t mean things will ever go back to how they were."',
     ' "One who does something he hates just because he\'s told to.. is called an errand boy."',
     ' "The reward for ambition too great... is self destruction."',
+    ' Providence may guide a man to meet one specific person, even if such guidance eventually leads him to darkness. Man simply cannot forsake the beauty of his own chosen path. When will man learn a way to control his soul?',
+    ' "A friend would not just follow another\'s dream... a friend would find his own reason to live..."',
+    ' "A dream... It\'s something you do for yourself, not for others."'
+
+
 ];
 
 const selectArray = ['10', '20', '30', '40', '50'];
@@ -85,7 +92,7 @@ function generateLorem() {
  */
 function copyToClipboard(id) {
     var range = document.createRange();
-    window.getSelection().removeRange(range); // End lifecycle unmount range. Not doing this causes bugs.
+    window.getSelection().removeRange(range); // End previous lifecycle bby unmounting range. Not doing this causes bugs.
     range.selectNode(document.getElementById(id));
     window.getSelection().addRange(range);
     document.execCommand("copy");
