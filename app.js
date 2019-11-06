@@ -80,11 +80,21 @@ function generateLorem() {
         characterArray[Math.floor(Math.random()*characterArray.length)] 
         + senarioArray[Math.floor(Math.random()*senarioArray.length)] 
         + quotesArray[Math.floor(Math.random()*quotesArray.length)];
-        
-        
     }
     return root.innerHTML = paragraph;
 }
+
+const footer = document.getElementById("footer");
+const footerAGit = document.createElement("a");
+footerAGit.setAttribute('href', 'https://github.com/josiahjswab/berserk-lorem-ipsum');
+footerAGit.setAttribute('target', '_blank');
+footer.appendChild(footerAGit);
+footerAGit.setAttribute('id', 'git-logo');
+
+const footerImg = document.createElement("IMG");
+footerImg.setAttribute('src', 'git-logo.png');
+footerAGit.appendChild(footerImg);
+
 /**
  * 
  * @param {string} id 
@@ -95,8 +105,9 @@ function copyToClipboard(id) {
     range.selectNode(document.getElementById(id));
     window.getSelection().addRange(range);
     document.execCommand("copy");
-    
 }
+
+
 
 generateLorem();
 
