@@ -59,16 +59,17 @@ function createSelectorList(item){
 const getSelectorValue = document.getElementById('length-select');
 
 const button = document.createElement("BUTTON");
-    button.setAttribute('id', 'generator-button');
-    button.setAttribute('onclick', 'generateLorem()');
-    button.innerHTML = 'Generate';
-    document.getElementById('bar').appendChild(button);
+button.setAttribute('id', 'generator-button');
+button.setAttribute('onclick', 'generateLorem()');
+button.innerHTML = 'Generate';
+document.getElementById('bar').appendChild(button);
 
 const button2 = document.createElement("BUTTON");
-    button2.setAttribute('id', 'copy-button');
-    button2.setAttribute('onclick', 'copyToClipboard("root")');
-    button2.innerHTML = 'Copy';
-    document.getElementById('bar').appendChild(button2);
+button2.setAttribute('id', 'copy-button');
+button2.setAttribute('data-tooltip', 'Copy'); // Used to connect css tooltip.
+button2.setAttribute('onclick', 'copyToClipboard("root")');
+button2.innerHTML = 'Copy';
+document.getElementById('bar').appendChild(button2);
 
 var root = document.getElementById('root'); // App latency improved when this var was moved here.
 
@@ -101,7 +102,7 @@ footerAGit.appendChild(footerImg);
  */
 function copyToClipboard(id) {
     var range = document.createRange();
-    window.getSelection().removeRange(range); // End previous lifecycle bby unmounting range. Not doing this causes bugs.
+    window.getSelection().removeAllRanges(); // Delete old range before selecting new range. Not doing this causes bugs because code not built to handle multilayer ranges.
     range.selectNode(document.getElementById(id));
     window.getSelection().addRange(range);
     document.execCommand("copy");

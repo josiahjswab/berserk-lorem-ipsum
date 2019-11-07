@@ -42,7 +42,7 @@ The copy function is the best experince possible for a user looking for Lorem Ip
 ```
 function copyToClipboard(id) {
     var range = document.createRange();
-    window.getSelection().removeRange(range);
+    window.getSelection().removeAllRanges();
     range.selectNode(document.getElementById(id));
     window.getSelection().addRange(range);
     document.execCommand("copy");
