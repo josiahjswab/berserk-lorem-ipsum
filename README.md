@@ -5,7 +5,7 @@ Welcome to a Berserk inspired Lorem Lipsum.
 
 Install the dependencies with:
 ```
-npm i 
+$ npm install 
 ```
 
 ## Points of interest in this app build:
