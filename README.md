@@ -1,5 +1,5 @@
 
-# berserk-lorem-ipsum
+# berserk-lorem-ipsum ![berserk curse mark](curse.png)
 
 Welcome to a Berserk inspired Lorem Lipsum.
 
